@@ -25,7 +25,7 @@ stages:
     steps:
       - script: echo Hello, world! This is dummy job
         displayName: 'Run a one-line script'
-      - powershell: ls . -r #Check the content of the workspace directory
+      - powershell: ls .. -r #Check the content of the workspace directory
         displayName: Explore Workspace
 
   - job: dummyJob2
@@ -49,7 +49,7 @@ stages:
             steps:
               - script: echo Hello, world! This is deploy job
                 displayName: 'Run a one-line script'
-              - powershell: ls . -r #Check the content of the workspace directory
+              - powershell: ls .. -r #Check the content of the workspace directory
                 displayName: Explore workspace
 
               - task: PublishPipelineArtifact@0
