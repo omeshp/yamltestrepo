@@ -25,7 +25,7 @@ stages:
     steps:
       - script: echo Hello, world! This is dummy job
         displayName: 'Run a one-line script'
-      - powershell: ls $(Pipeline.Workspace) -r #Check the content of the workspace directory
+      - powershell: ls . -r #Check the content of the workspace directory
         displayName: Explore Workspace
 
   - job: dummyJob2
@@ -34,11 +34,8 @@ stages:
         path: foo
         patterns: '**/*.txt'
         displayName: Auto Downloaded Stuff
-      - powershell: ls $(Pipeline.Workspace) -r #Check the content of the workspace directory
+      - powershell: ls . -r #Check the content of the workspace directory
         displayName: Explore Workspace
-      - powershell: |
-          Remove-Item $(Pipeline.Workspace)\foo -Recurse -Force
-        displayName: Scorch workspace
 
 - stage: Deploy
   displayName: Deploy stage
@@ -52,13 +49,8 @@ stages:
             steps:
               - script: echo Hello, world! This is deploy job
                 displayName: 'Run a one-line script'
-              - powershell: ls $(Pipeline.Workspace) -r #Check the content of the workspace directory
+              - powershell: ls . -r #Check the content of the workspace directory
                 displayName: Explore workspace
-
-              - powershell: |
-                  # Remove-Item $(Pipeline.Workspace)\Artifact1 -Recurse -Force
-                  Remove-Item $(Pipeline.Workspace)\Artifact2 -Recurse -Force
-                displayName: Scorch workspace
 
               - task: PublishPipelineArtifact@0
                 displayName: Create Azcopy Artifact
@@ -76,9 +68,5 @@ stages:
             steps:
               - script: echo Hello, world! This is deploy job
                 displayName: 'Run a one-line script'
-              - powershell: ls $(Pipeline.Workspace) -r #Check the content of the workspace directory
+              - powershell: ls . -r #Check the content of the workspace directory
                 displayName: Explore workspace
-
-              - powershell: |
-                  Remove-Item $(Pipeline.Workspace)\Azcopy -Recurse -Force
-                displayName: Scorch workspace
