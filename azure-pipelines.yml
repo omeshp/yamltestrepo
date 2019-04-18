@@ -29,8 +29,6 @@ stages:
         displayName: Explore Workspace
 
   - job: dummyJob2
-    #pool: default
-    pool: kasubram-test
     steps:
       - download: current
         path: foo
@@ -45,8 +43,6 @@ stages:
   jobs:  
   - deployment: Deploy1
     displayName: Deploy job
-    #pool: default
-    pool: kasubram-test
     environment: Environment01
     strategy:
         runOnce:
@@ -70,8 +66,6 @@ stages:
 
   - deployment: Deploy2
     displayName: Deploy2 job
-    #pool: default
-    pool: kasubram-test
     environment: Environment01
     dependsOn: Deploy1
     strategy:
