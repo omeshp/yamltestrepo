@@ -32,6 +32,8 @@ stages:
     steps:
       - download: current
         path: foo
+        patterns: **/*.txt
+        displayName: Auto Downloaded Stuff
       - powershell: ls $(Pipeline.Workspace) -r #Check the content of the workspace directory
         displayName: Explore Workspace
       - powershell: |
