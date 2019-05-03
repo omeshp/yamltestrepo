@@ -55,12 +55,13 @@ stages:
                 displayName: 'Run a one-line script'
               - powershell: ls ../a -r #Check the content of the workspace directory
                 displayName: Explore workspace
-
-              - task: PublishPipelineArtifact@0
-                displayName: Create Azcopy Artifact
+              - task: PublishBuildArtifacts@1
                 inputs:
-                  artifactName: AzCopy
-                  targetPath: Files/azcopyFiles
+                  PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+                  ArtifactName: 'fileshare'
+                  publishLocation: 'FilePath'
+                  TargetPath: '\\devomp\drop'
+                  Parallel: true
 
   - deployment: Deploy2
     displayName: Deploy2 job
