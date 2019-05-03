@@ -15,6 +15,12 @@ stages:
         pathToPublish: testFolder
         artifactName: Artifact1
 
+    - task: PublishPipelineArtifact@0
+      displayName: Create Artifact
+      targetPath: testFolder
+      inputs:
+         artifactName: Artifact2
+
     - upload: Extension
       artifact: Artifact2
 
