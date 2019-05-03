@@ -35,7 +35,6 @@ stages:
   - job: dummyJob2
     steps:
       - download: current
-        path: foo
         patterns: '**/*.txt'
         displayName: Auto Downloaded Stuff
       - powershell: ls ../a -r #Check the content of the workspace directory
