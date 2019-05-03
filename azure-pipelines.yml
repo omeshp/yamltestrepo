@@ -20,7 +20,7 @@ stages:
         targetPath: 'testFolder'
 
     - upload: Extension
-      artifact: Artifact2
+      artifact: Artifact3
 
 - stage: QA
   displayName: QA stage
