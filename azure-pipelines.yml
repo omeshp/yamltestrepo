@@ -14,6 +14,11 @@ stages:
       inputs:
         pathToPublish: testFolder
         artifactName: Artifact1
+    - task: PublishBuildArtifacts@1
+      displayName: Publish TestFolder
+      inputs:
+        pathToPublish: testFolder
+        artifactName: 'MyArtifactIsDummyWith/InIt'        
     - task: PublishPipelineArtifact@0
       inputs:
         artifactName: 'Artifact2'
