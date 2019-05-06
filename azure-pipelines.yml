@@ -5,6 +5,7 @@ stages:
   jobs:  
   - job: Build
     displayName: Build job
+    
     steps:
     - script: echo Hello, world! This is CI job
       displayName: 'Run a one-line script'
