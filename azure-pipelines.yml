@@ -2,8 +2,6 @@ trigger: none
 stages:
 - stage: Build
   displayName: Build stage
-
-  
   jobs:  
   - job: Build
     displayName: Build job
