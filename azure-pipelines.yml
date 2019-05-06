@@ -8,9 +8,7 @@ stages:
     steps:
     - script: echo Hello, world! This is CI job
       displayName: 'Run a one-line script'
-
       
-
     - task: PublishBuildArtifacts@1
       displayName: Publish TestFolder
       inputs:
